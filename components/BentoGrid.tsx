@@ -63,14 +63,14 @@ const bentoItems = [
 
 export default function BentoGrid() {
   return (
-    <section id="portfolio" className="py-24 bg-[#0a0a0a]">
+    <section id="portfolio" className="py-24 bg-background">
       <div className="max-w-7xl mx-auto px-6">
         {/* Header */}
         <ScrollReveal className="mb-16">
-          <p className="text-white/40 text-xs tracking-[0.5em] uppercase mb-4">
+          <p className="text-foreground/40 text-xs tracking-[0.5em] uppercase mb-4">
             What I Do
           </p>
-          <h2 className="text-4xl md:text-5xl font-bold text-white leading-tight">
+          <h2 className="text-4xl md:text-5xl font-bold text-foreground leading-tight">
             Creative Services
           </h2>
         </ScrollReveal>
@@ -87,39 +87,36 @@ export default function BentoGrid() {
                 viewport={{ once: true, amount: 0.1 }}
                 transition={{ duration: 0.6, delay: index * 0.1, ease: "easeOut" }}
                 whileHover={{ scale: 1.02 }}
-                className={`group relative p-8 border border-white/5 cursor-pointer overflow-hidden transition-all duration-500 ${item.className}`}
+                className={`group relative p-8 border border-foreground/5 cursor-pointer overflow-hidden transition-all duration-500 ${item.className} bg-foreground/[0.02]`}
                 style={{
-                  background: item.gradient
-                    ? `linear-gradient(135deg, rgba(88,28,135,0.5), rgba(131,24,67,0.5))`
-                    : "#111111",
                   minHeight: "200px",
                 }}
               >
                 {/* Hover background */}
-                <div className="absolute inset-0 bg-white/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                <div className="absolute inset-0 bg-foreground/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
 
                 {/* Icon */}
                 <div className="relative z-10 mb-6">
-                  <Icon size={28} className="text-white/60 group-hover:text-white transition-colors duration-300" />
+                  <Icon size={28} className="text-foreground/60 group-hover:text-foreground transition-colors duration-300" />
                 </div>
 
                 {/* Content */}
                 <div className="relative z-10">
-                  <h3 className="text-white font-bold text-lg mb-3 tracking-wide">
+                  <h3 className="text-foreground font-bold text-lg mb-3 tracking-wide">
                     {item.title}
                   </h3>
-                  <p className="text-white/50 text-sm leading-relaxed">
+                  <p className="text-foreground/50 text-sm leading-relaxed">
                     {item.description}
                   </p>
                 </div>
 
                 {/* Arrow */}
                 <div className="absolute bottom-6 right-6 z-10 opacity-0 group-hover:opacity-100 transition-all duration-300 translate-x-2 translate-y-2 group-hover:translate-x-0 group-hover:translate-y-0">
-                  <ArrowUpRight size={20} className="text-white" />
+                  <ArrowUpRight size={20} className="text-foreground" />
                 </div>
 
                 {/* Corner accent */}
-                <div className="absolute top-0 right-0 w-16 h-16 border-t border-r border-white/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                <div className="absolute top-0 right-0 w-16 h-16 border-t border-r border-foreground/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
               </motion.div>
             );
           })}

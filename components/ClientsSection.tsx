@@ -58,10 +58,10 @@ function MarqueeRow({ items, reverse = false }: { items: string[]; reverse?: boo
         {doubled.map((client, i) => (
           <span
             key={i}
-            className="text-white/20 font-bold text-sm tracking-[0.3em] uppercase hover:text-white/50 transition-colors duration-300 cursor-default"
+            className="text-foreground/20 font-bold text-sm tracking-[0.3em] uppercase hover:text-foreground/50 transition-colors duration-300 cursor-default"
           >
             {client}
-            <span className="ml-12 text-white/10">✦</span>
+            <span className="ml-12 text-foreground/10">✦</span>
           </span>
         ))}
       </div>
@@ -71,20 +71,20 @@ function MarqueeRow({ items, reverse = false }: { items: string[]; reverse?: boo
 
 export default function ClientsSection() {
   return (
-    <section id="clients" className="py-24 bg-[#0d0d0d]">
+    <section id="clients" className="py-24 bg-background">
       <div className="max-w-7xl mx-auto px-6">
         {/* Header */}
         <ScrollReveal className="mb-16 text-center">
-          <p className="text-white/40 text-xs tracking-[0.5em] uppercase mb-4">
+          <p className="text-foreground/40 text-xs tracking-[0.5em] uppercase mb-4">
             Trusted By
           </p>
-          <h2 className="text-4xl md:text-5xl font-bold text-white leading-tight">
+          <h2 className="text-4xl md:text-5xl font-bold text-foreground leading-tight">
             Reference Clients
           </h2>
         </ScrollReveal>
 
         {/* Infinite Marquee */}
-        <div className="mb-20 border-y border-white/5 py-4">
+        <div className="mb-20 border-y border-foreground/5 py-4">
           <MarqueeRow items={clients} />
           <MarqueeRow items={clients2} reverse />
         </div>
@@ -93,13 +93,13 @@ export default function ClientsSection() {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
           {testimonials.map((t, index) => (
             <ScrollReveal key={index} delay={index * 0.15}>
-              <div className="bg-[#111111] border border-white/5 p-8 h-full">
-                <p className="text-white/60 leading-relaxed mb-8 text-sm italic">
+              <div className="bg-foreground/[0.02] border border-foreground/5 p-8 h-full">
+                <p className="text-foreground/60 leading-relaxed mb-8 text-sm italic">
                   &ldquo;{t.quote}&rdquo;
                 </p>
-                <div className="border-t border-white/10 pt-6">
-                  <p className="text-white font-bold text-sm">{t.name}</p>
-                  <p className="text-white/40 text-xs tracking-wider uppercase mt-1">
+                <div className="border-t border-foreground/10 pt-6">
+                  <p className="text-foreground font-bold text-sm">{t.name}</p>
+                  <p className="text-foreground/40 text-xs tracking-wider uppercase mt-1">
                     {t.company}
                   </p>
                 </div>

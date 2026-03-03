@@ -3,6 +3,7 @@
 import { useEffect, useRef, useState } from "react";
 import { motion } from "framer-motion";
 import { Instagram, Twitter, Youtube, Linkedin, Figma, ChevronDown } from "lucide-react";
+import { useTheme } from "@/contexts/ThemeContext";
 
 const socialLinks = [
   { icon: Instagram, href: "#", label: "Instagram" },
@@ -15,6 +16,7 @@ const socialLinks = [
 export default function HeroSection() {
   const videoRef = useRef<HTMLVideoElement>(null);
   const [videoLoaded, setVideoLoaded] = useState(false);
+  const { theme } = useTheme();
 
   useEffect(() => {
     const video = videoRef.current;
@@ -28,6 +30,8 @@ export default function HeroSection() {
   const scrollToPortfolio = () => {
     document.querySelector("#portfolio")?.scrollIntoView({ behavior: "smooth" });
   };
+
+  const isDark = theme === "dark";
 
   return (
     <section
@@ -46,11 +50,17 @@ export default function HeroSection() {
         onLoadedData={() => setVideoLoaded(true)}
       />
 
-      {/* Dark overlay */}
-      <div className="absolute inset-0 bg-black/70" />
+      {/* Dark overlay - adjusted for theme */}
+      <div className={`absolute inset-0 ${isDark ? "bg-black/70" : "bg-white/70"}`} />
 
       {/* Gradient overlays for depth */}
-      <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-transparent to-black/80" />
+      <div
+        className={`absolute inset-0 ${
+          isDark
+            ? "bg-gradient-to-b from-black/40 via-transparent to-black/80"
+            : "bg-gradient-to-b from-white/40 via-transparent to-white/80"
+        }`}
+      />
 
       {/* Content */}
       <div className="relative z-10 text-center px-6 max-w-6xl mx-auto">
@@ -59,7 +69,7 @@ export default function HeroSection() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.2 }}
-          className="text-white/40 text-xs tracking-[0.5em] uppercase mb-8"
+          className="text-foreground/40 text-xs tracking-[0.5em] uppercase mb-8"
         >
           Creative Portfolio
         </motion.p>
@@ -69,7 +79,7 @@ export default function HeroSection() {
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1, delay: 0.4 }}
-          className="font-black tracking-[0.15em] text-white uppercase leading-none mb-6"
+          className="font-black tracking-[0.15em] text-foreground uppercase leading-none mb-6"
           style={{ fontSize: "clamp(3rem, 10vw, 9rem)" }}
         >
           KARALIYSINN
@@ -80,7 +90,7 @@ export default function HeroSection() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.6 }}
-          className="text-white/50 tracking-[0.3em] uppercase text-sm mb-12"
+          className="text-foreground/50 tracking-[0.3em] uppercase text-sm mb-12"
         >
           Creative Vision • Digital Craft
         </motion.p>
@@ -94,13 +104,17 @@ export default function HeroSection() {
         >
           <button
             onClick={scrollToPortfolio}
-            className="bg-white text-black px-8 py-3.5 text-sm font-bold uppercase tracking-widest hover:bg-white/90 transition-all duration-300"
+            className={`${
+              isDark
+                ? "bg-white text-black hover:bg-white/90"
+                : "bg-black text-white hover:bg-black/90"
+            } px-8 py-3.5 text-sm font-bold uppercase tracking-widest transition-all duration-300`}
           >
             View Portfolio
           </button>
           <button
             onClick={scrollToPortfolio}
-            className="border border-white/40 text-white px-8 py-3.5 text-sm font-bold uppercase tracking-widest hover:border-white hover:bg-white/5 transition-all duration-300"
+            className="border border-foreground/40 text-foreground px-8 py-3.5 text-sm font-bold uppercase tracking-widest hover:border-foreground hover:bg-foreground/5 transition-all duration-300"
           >
             Watch Reel
           </button>
@@ -119,7 +133,7 @@ export default function HeroSection() {
             key={label}
             href={href}
             aria-label={label}
-            className="text-white/40 hover:text-white transition-colors duration-300"
+            className="text-foreground/40 hover:text-foreground transition-colors duration-300"
           >
             <Icon size={18} />
           </a>
@@ -132,7 +146,7 @@ export default function HeroSection() {
         animate={{ opacity: 1 }}
         transition={{ duration: 0.8, delay: 1.2 }}
         onClick={scrollToPortfolio}
-        className="absolute bottom-10 left-1/2 -translate-x-1/2 z-10 flex flex-col items-center gap-2 text-white/40 hover:text-white transition-colors duration-300"
+        className="absolute bottom-10 left-1/2 -translate-x-1/2 z-10 flex flex-col items-center gap-2 text-foreground/40 hover:text-foreground transition-colors duration-300"
         aria-label="Scroll down"
       >
         <span className="text-xs uppercase tracking-[0.3em]">Scroll</span>
