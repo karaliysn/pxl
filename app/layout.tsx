@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import "./globals.css";
-import { ThemeProvider } from "@/contexts/ThemeContext";
+import ClientProvider from "@/components/ClientProvider";
 
 export const metadata: Metadata = {
   title: "KARALIYSINN — Creative Portfolio",
@@ -30,7 +30,7 @@ export default function RootLayout({
         />
       </head>
       <body className="bg-background text-foreground antialiased">
-        <ThemeProvider>{children}</ThemeProvider>
+        <ClientProvider>{children}</ClientProvider>
       </body>
     </html>
   );

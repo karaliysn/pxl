@@ -16,7 +16,12 @@ const socialLinks = [
 export default function HeroSection() {
   const videoRef = useRef<HTMLVideoElement>(null);
   const [videoLoaded, setVideoLoaded] = useState(false);
+  const [mounted, setMounted] = useState(false);
   const { theme } = useTheme();
+
+  useEffect(() => {
+    setMounted(true);
+  }, []);
 
   useEffect(() => {
     const video = videoRef.current;
@@ -31,7 +36,7 @@ export default function HeroSection() {
     document.querySelector("#portfolio")?.scrollIntoView({ behavior: "smooth" });
   };
 
-  const isDark = theme === "dark";
+  const isDark = mounted ? theme === "dark" : true;
 
   return (
     <section
