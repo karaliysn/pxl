@@ -12,7 +12,6 @@ const bentoItems = [
     description:
       "Cinematic storytelling that captivates. From concept to final cut, every frame is crafted with purpose.",
     className: "md:row-span-2",
-    gradient: "",
   },
   {
     id: 2,
@@ -21,7 +20,6 @@ const bentoItems = [
     description:
       "Capturing moments that transcend time. Editorial, commercial, and fine art photography.",
     className: "",
-    gradient: "",
   },
   {
     id: 3,
@@ -30,7 +28,6 @@ const bentoItems = [
     description:
       "Translating vision into visual language. Art direction, mood boards, and creative strategy.",
     className: "",
-    gradient: "from-purple-900/50 to-pink-900/50",
   },
   {
     id: 4,
@@ -39,7 +36,6 @@ const bentoItems = [
     description:
       "Data-driven creative decisions. Content strategy, campaign planning, and brand positioning.",
     className: "",
-    gradient: "",
   },
   {
     id: 5,
@@ -48,7 +44,6 @@ const bentoItems = [
     description:
       "Color grading, VFX, and finishing that elevates content to the next level.",
     className: "",
-    gradient: "",
   },
   {
     id: 6,
@@ -57,7 +52,6 @@ const bentoItems = [
     description:
       "Building brands that resonate. Identity, positioning, and long-term creative partnership.",
     className: "md:col-span-2",
-    gradient: "",
   },
 ];
 

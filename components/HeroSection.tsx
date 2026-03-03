@@ -36,7 +36,8 @@ export default function HeroSection() {
     document.querySelector("#portfolio")?.scrollIntoView({ behavior: "smooth" });
   };
 
-  const isDark = mounted ? theme === "dark" : true;
+  // Use dark overlay by default until mounted and theme is determined
+  const shouldUseDarkOverlay = mounted ? theme === "dark" : true;
 
   return (
     <section
@@ -56,12 +57,12 @@ export default function HeroSection() {
       />
 
       {/* Dark overlay - adjusted for theme */}
-      <div className={`absolute inset-0 ${isDark ? "bg-black/70" : "bg-white/70"}`} />
+      <div className={`absolute inset-0 ${shouldUseDarkOverlay ? "bg-black/70" : "bg-white/70"}`} />
 
       {/* Gradient overlays for depth */}
       <div
         className={`absolute inset-0 ${
-          isDark
+          shouldUseDarkOverlay
             ? "bg-gradient-to-b from-black/40 via-transparent to-black/80"
             : "bg-gradient-to-b from-white/40 via-transparent to-white/80"
         }`}
@@ -110,7 +111,7 @@ export default function HeroSection() {
           <button
             onClick={scrollToPortfolio}
             className={`${
-              isDark
+              shouldUseDarkOverlay
                 ? "bg-white text-black hover:bg-white/90"
                 : "bg-black text-white hover:bg-black/90"
             } px-8 py-3.5 text-sm font-bold uppercase tracking-widest transition-all duration-300`}
