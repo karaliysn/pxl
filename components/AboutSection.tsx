@@ -4,17 +4,14 @@ import ScrollReveal from "./ScrollReveal";
 
 export default function AboutSection() {
   return (
-    <section id="about" className="py-24 bg-black">
+    <section id="about" className="py-24 bg-background">
       <div className="max-w-7xl mx-auto px-6">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
           {/* Image */}
           <ScrollReveal direction="right">
             <div className="relative">
               <div
-                className="w-full aspect-[4/5] bg-[#111111] border border-white/5 overflow-hidden"
-                style={{
-                  background: "linear-gradient(135deg, #0d0d0d 0%, #1a1a1a 50%, #111111 100%)",
-                }}
+                className="w-full aspect-[4/5] bg-foreground/[0.02] border border-foreground/5 overflow-hidden"
               >
                 <img
                   src="/images/about.jpg"
@@ -25,24 +22,24 @@ export default function AboutSection() {
                   }}
                 />
                 {/* Decorative overlay */}
-                <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
+                <div className="absolute inset-0 bg-gradient-to-t from-foreground/60 via-transparent to-transparent" />
               </div>
               {/* Floating accent */}
-              <div className="absolute -bottom-4 -right-4 w-24 h-24 border border-white/10" />
-              <div className="absolute -top-4 -left-4 w-16 h-16 border border-white/5" />
+              <div className="absolute -bottom-4 -right-4 w-24 h-24 border border-foreground/10" />
+              <div className="absolute -top-4 -left-4 w-16 h-16 border border-foreground/5" />
             </div>
           </ScrollReveal>
 
           {/* Text */}
           <ScrollReveal direction="left" delay={0.2}>
             <div>
-              <p className="text-white/40 text-xs tracking-[0.5em] uppercase mb-6">
+              <p className="text-foreground/40 text-xs tracking-[0.5em] uppercase mb-6">
                 The Story
               </p>
-              <h2 className="text-4xl md:text-5xl font-bold text-white leading-tight mb-8">
+              <h2 className="text-4xl md:text-5xl font-bold text-foreground leading-tight mb-8">
                 Brand Story
               </h2>
-              <div className="space-y-6 text-white/60 leading-relaxed">
+              <div className="space-y-6 text-foreground/60 leading-relaxed">
                 <p>
                   KARALIYSINN is a creative studio at the intersection of film, photography,
                   and brand storytelling. Born from a deep obsession with visual craft, the
@@ -62,15 +59,15 @@ export default function AboutSection() {
               </div>
 
               {/* Stats */}
-              <div className="grid grid-cols-3 gap-6 mt-10 pt-10 border-t border-white/10">
+              <div className="grid grid-cols-3 gap-6 mt-10 pt-10 border-t border-foreground/10">
                 {[
                   { value: "150+", label: "Projects" },
                   { value: "40+", label: "Clients" },
                   { value: "8+", label: "Years" },
                 ].map((stat) => (
                   <div key={stat.label}>
-                    <p className="text-white font-bold text-3xl">{stat.value}</p>
-                    <p className="text-white/40 text-xs tracking-[0.2em] uppercase mt-1">
+                    <p className="text-foreground font-bold text-3xl">{stat.value}</p>
+                    <p className="text-foreground/40 text-xs tracking-[0.2em] uppercase mt-1">
                       {stat.label}
                     </p>
                   </div>
@@ -84,7 +81,7 @@ export default function AboutSection() {
                   e.preventDefault();
                   document.querySelector("#contact")?.scrollIntoView({ behavior: "smooth" });
                 }}
-                className="inline-flex items-center gap-3 mt-10 bg-white text-black px-8 py-3.5 text-sm font-bold uppercase tracking-widest hover:bg-white/90 transition-all duration-300"
+                className="inline-flex items-center gap-3 mt-10 bg-foreground text-background px-8 py-3.5 text-sm font-bold uppercase tracking-widest hover:opacity-90 transition-all duration-300"
               >
                 Get in Touch
               </a>

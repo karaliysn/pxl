@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import "./globals.css";
+import ClientProvider from "@/components/ClientProvider";
 
 export const metadata: Metadata = {
   title: "KARALIYSINN — Creative Portfolio",
@@ -28,7 +29,9 @@ export default function RootLayout({
           rel="stylesheet"
         />
       </head>
-      <body className="bg-black text-white antialiased">{children}</body>
+      <body className="bg-background text-foreground antialiased">
+        <ClientProvider>{children}</ClientProvider>
+      </body>
     </html>
   );
 }

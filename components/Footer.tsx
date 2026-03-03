@@ -20,13 +20,13 @@ export default function Footer() {
   };
 
   return (
-    <footer className="bg-black border-t border-white/5">
+    <footer className="bg-background border-t border-foreground/5">
       <div className="max-w-7xl mx-auto px-6 py-12">
         <div className="flex flex-col md:flex-row items-center justify-between gap-8">
           {/* Brand */}
           <button
             onClick={() => handleLinkClick("#home")}
-            className="text-white font-bold text-lg tracking-[0.15em] uppercase hover:text-white/70 transition-colors duration-300"
+            className="text-foreground font-bold text-lg tracking-[0.15em] uppercase hover:opacity-70 transition-colors duration-300"
           >
             KARALIYSINN
           </button>
@@ -38,7 +38,7 @@ export default function Footer() {
                 <li key={link.href}>
                   <button
                     onClick={() => handleLinkClick(link.href)}
-                    className="text-white/40 hover:text-white text-xs uppercase tracking-wider transition-colors duration-300"
+                    className="text-foreground/40 hover:text-foreground text-xs uppercase tracking-wider transition-colors duration-300"
                   >
                     {link.label}
                   </button>
@@ -48,12 +48,12 @@ export default function Footer() {
           </nav>
 
           {/* Legal */}
-          <div className="flex items-center gap-6 text-white/20 text-xs">
+          <div className="flex items-center gap-6 text-foreground/20 text-xs">
             <span>© {currentYear} KARALIYSINN</span>
-            <span className="hover:text-white/40 cursor-pointer transition-colors duration-300">
+            <span className="hover:text-foreground/40 cursor-pointer transition-colors duration-300">
               Privacy
             </span>
-            <span className="hover:text-white/40 cursor-pointer transition-colors duration-300">
+            <span className="hover:text-foreground/40 cursor-pointer transition-colors duration-300">
               Terms
             </span>
           </div>
